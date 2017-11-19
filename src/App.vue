@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <the-header></the-header>
-    <quiz-details :quiz="quiz"></quiz-details>
+  <div id="app" class="container">
+      <the-header></the-header>
+      <quiz-details :quiz="quiz"></quiz-details>
     <!-- <router-view/> -->
   </div>
 </template>
@@ -33,11 +33,8 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
