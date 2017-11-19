@@ -1,6 +1,6 @@
 <template>
   <p class="answer"
-    :class="{ 'answer--selected': isSelected }"
+    :class="{ 'answer--selected': isSelected, 'answer--corrected': isEnded && corrected }"
     @click="selectAnswer"
   >
     <i class="fa" 
@@ -10,11 +10,18 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     name: 'AnswersListElement',
     props: {
       answer: String,
-      isSelected: Boolean
+      isSelected: Boolean,
+      corrected: Boolean
+    },
+
+    computed: {
+      ...mapGetters(['isEnded'])
     },
 
     methods: {
@@ -32,4 +39,8 @@
 
   .answer--selected
     font-weight: bold
+
+  .answer--corrected
+    background: green
+    color: white
 </style>

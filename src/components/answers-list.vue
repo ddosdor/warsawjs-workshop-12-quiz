@@ -5,6 +5,7 @@
       :key="index"
       :answer="answer"
       :is-selected="index === selectedAnswerIndex"
+      :corrected="index === correctAnswerIndex"
       @selectAnswer="handleSelectAnswer"
     ></answers-list-element>
   </div>
@@ -18,7 +19,8 @@
     components: { AnswersListElement },
     props: {
       answers: Array,
-      selectedAnswerIndex: Number
+      selectedAnswerIndex: Number,
+      correctAnswerIndex: Number
     },
 
     methods: {
