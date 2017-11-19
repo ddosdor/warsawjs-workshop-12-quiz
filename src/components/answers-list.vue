@@ -4,6 +4,8 @@
       v-for="(answer, index) in answers"
       :key="index"
       :answer="answer"
+      :is-selected="index === selectedAnswerIndex"
+      @selectAnswer="handleSelectAnswer"
     ></answers-list-element>
   </div>
 </template>
@@ -15,7 +17,14 @@
     name: 'AnswersList',
     components: { AnswersListElement },
     props: {
-      answers: Array
+      answers: Array,
+      selectedAnswerIndex: Number
+    },
+
+    methods: {
+      handleSelectAnswer(answer) {
+        this.$emit('selectAnswer', this.answers.indexOf(answer))
+      }
     }
   }
 </script>

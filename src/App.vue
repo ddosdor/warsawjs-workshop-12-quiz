@@ -8,6 +8,7 @@
 
 <script>
 import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
 
 import TheHeader from '@/components/the-header.vue';
 import QuizDetails from '@/components/quiz-details.vue';
@@ -16,17 +17,16 @@ export default {
   name: 'app',
   components: { TheHeader, QuizDetails },
 
-  data() {
-    return {
-      quiz: null
-    }
+  mounted() {
+    this.init();
   },
 
-  mounted() {
-    axios.get('static/quiz.json')
-      .then((quiz) => {
-        this.quiz = quiz.data;
-      })
+  computed: {
+    ...mapGetters(['quiz'])
+  },
+
+  methods: {
+    ...mapActions(['init'])
   }
 }
 </script>

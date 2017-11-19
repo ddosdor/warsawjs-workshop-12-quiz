@@ -1,10 +1,14 @@
 <template>
   <div class="message">
-    <header class="message-header question-title" @click="answerIsVisible = !answerIsVisible">
+    <header class="message-header">
       <p>{{ question.title }}</p>
     </header>
-    <div class="message-body animated fadeIn" v-if="answerIsVisible">
-      <answers-list :answers="question.answers"></answers-list>
+    <div class="message-body">
+      <answers-list 
+        :answers="question.answers"
+        :selected-answer-index="selectedAnswerIndex"
+        @selectAnswer="handleSelectAnswer"
+      ></answers-list>
     </div>      
   </div>
 </template>
@@ -21,13 +25,18 @@
 
     data() {
       return {
-        answerIsVisible: false
+        selectedAnswerIndex: null,
       }
     },
+
+    methods: {
+      handleSelectAnswer(answerIndex) {
+        this.selectedAnswerIndex = answerIndex;
+      }
+    }
   }
 </script>
 
 <style lang="sass" scoped>
-  .question-title
-    cursor: pointer
+
 </style>
