@@ -28,7 +28,7 @@ export default new Vuex.Store({
     'CHECK_RESULTS'(state) {
       const _state = state;
       _state.quiz.questions.forEach(question => {
-        if (question.userAnswerIndex || (question.userAnswerIndex === question.correctAnswerIndex)) {
+        if (question.isCorrect) {
           _state.score = _state.score + 1;
         }
       });

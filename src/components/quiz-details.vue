@@ -14,7 +14,7 @@
                 <br>
                 Quiz category: {{ quiz.categoryName }}
               </p>
-              <p v-if="isEnded">Twój wynik: {{ score }} / 7</p>
+              <p v-if="isEnded">Twój wynik: {{ score }} / {{ quiz.questions.length }}</p>
             </div>
           </div>
           <div class="media-right">

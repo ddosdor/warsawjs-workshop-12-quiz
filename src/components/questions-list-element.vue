@@ -2,7 +2,9 @@
   <div class="message">
     <header class="message-header">
       <p>{{ question.title }}
-        <span class="tag" :class="[question.isCorrect ? 'is-success' : 'is-danger']" v-if="isEnded">Success</span>
+        <span class="tag" :class="[question.isCorrect ? 'is-success' : 'is-danger']" v-if="isEnded">
+          {{ question.isCorrect ? 'Prawidłowa' : 'Błędna' }}
+        </span>
       </p>
     </header>
     <div class="message-body">
