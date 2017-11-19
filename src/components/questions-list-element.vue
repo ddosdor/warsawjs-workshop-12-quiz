@@ -3,7 +3,7 @@
     <header class="message-header question-title" @click="answerIsVisible = !answerIsVisible">
       <p>{{ question.title }}</p>
     </header>
-    <div class="message-body" v-if="answerIsVisible">
+    <div class="message-body animated fadeIn" v-if="answerIsVisible">
       <answers-list :answers="question.answers"></answers-list>
     </div>      
   </div>
